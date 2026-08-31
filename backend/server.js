@@ -57,6 +57,11 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🌸 WellNest AI Server running in ${process.env.NODE_ENV || 'development'} mode on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🌸 WellNest AI Server running in ${process.env.NODE_ENV || 'development'} mode on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
+
