@@ -30,6 +30,21 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Ensure Database Connection for Serverless requests
+app.use(async (req, res, next) => {
+  if (req.path === '/api/health') return next();
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('Database connection error:', error.message);
+    res.status(503).json({
+      success: false,
+      message: `Database connection failed (${error.message}). Please check MONGODB_URI configuration and MongoDB Atlas Network Access.`
+    });
+  }
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/checkins', checkInRoutes);
