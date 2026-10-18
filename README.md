@@ -179,5 +179,3 @@ You can use the default pre-seeded test account:
 
 ---
 
-## 📄 License
-This project is open-source and built for mental health advocacy and educational wellness support.
