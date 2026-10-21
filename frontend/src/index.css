@@ -1,0 +1,371 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-light: var(--secondary-light);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-sage: var(--sage);
+  --color-cream: var(--cream);
+  --color-bark: var(--bark);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  
+  --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-input: var(--surface-input);
+  --color-surface-border: var(--surface-border);
+  --color-surface-chip: var(--surface-chip);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Nunito', system-ui, sans-serif;
+  --font-display: 'Baloo 2', cursive, sans-serif;
+}
+
+:root {
+  /* Default: Pastel Meadow */
+  --bg-gradient: linear-gradient(135deg, #FAF7F2 0%, #F5EDF8 50%, #FAF7F2 100%);
+  --text-primary: #231934;
+  --text-secondary: #5F5379;
+  --text-muted: #8E85A2;
+  --surface: rgba(250, 247, 242, 0.96);
+  --surface-card: #FFFFFF;
+  --surface-input: #FFFFFF;
+  --surface-border: rgba(180, 160, 215, 0.45);
+  --surface-chip: #FFFFFF;
+  --primary: #8a6ec8;
+  --primary-deep: #7054b0;
+  --primary-light: #C9B8E8;
+  --primary-soft: #EDE6F8;
+  --secondary: #2d948e;
+  --secondary-light: #B8E8E8;
+  --accent: #F2A7C3;
+  --accent-soft: #FDEEF5;
+  --sage: #A8C5A0;
+  --cream: #FAF7F2;
+  --bark: #6B4F3A;
+}
+
+/* ── Global Theme Overrides ── */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  font-family: 'Nunito', sans-serif;
+  transition: background 0.4s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* 1. PASTEL MEADOW (Light) */
+body.bg-pastel, html[data-theme="pastel"] body {
+  --bg-gradient: linear-gradient(135deg, #FAF7F2 0%, #F5EDF8 50%, #FAF7F2 100%);
+  --text-primary: #231934;
+  --text-secondary: #5F5379;
+  --text-muted: #8E85A2;
+  --surface: rgba(250, 247, 242, 0.96);
+  --surface-card: #FFFFFF;
+  --surface-input: #FFFFFF;
+  --surface-border: rgba(180, 160, 215, 0.45);
+  --surface-chip: #FFFFFF;
+  --primary: #8a6ec8;
+  --primary-deep: #7054b0;
+  --primary-light: #C9B8E8;
+  --primary-soft: #EDE6F8;
+  --secondary: #2d948e;
+  --secondary-light: #B8E8E8;
+  --accent: #F2A7C3;
+  --accent-soft: #FDEEF5;
+}
+
+/* 2. ENCHANTED FOREST (Dark Emerald) */
+body.bg-forest, html.dark body.bg-forest, html[data-theme="forest"] body {
+  --bg-gradient: linear-gradient(135deg, #0b180d 0%, #152917 50%, #0d1e11 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #d1fae5;
+  --text-muted: #86efac;
+  --surface: rgba(11, 24, 13, 0.94);
+  --surface-card: rgba(24, 46, 28, 0.88);
+  --surface-input: rgba(32, 60, 36, 0.92);
+  --surface-border: rgba(110, 231, 183, 0.35);
+  --surface-chip: rgba(28, 52, 32, 0.90);
+  --primary: #4ade80;
+  --primary-deep: #22c55e;
+  --primary-light: #bbf7d0;
+  --primary-soft: rgba(74, 222, 128, 0.22);
+  --secondary: #2dd4bf;
+  --secondary-light: #99f6e4;
+  --accent: #86efac;
+  --accent-soft: rgba(134, 239, 172, 0.2);
+}
+
+/* 3. OCEAN TWILIGHT (Dark Sapphire) */
+body.bg-ocean, html.dark body.bg-ocean, html[data-theme="ocean"] body {
+  --bg-gradient: linear-gradient(135deg, #04101e 0%, #092036 50%, #051424 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #e0f2fe;
+  --text-muted: #7dd3fc;
+  --surface: rgba(4, 16, 30, 0.94);
+  --surface-card: rgba(14, 38, 62, 0.88);
+  --surface-input: rgba(20, 50, 80, 0.92);
+  --surface-border: rgba(125, 211, 252, 0.35);
+  --surface-chip: rgba(16, 42, 68, 0.90);
+  --primary: #38bdf8;
+  --primary-deep: #0284c7;
+  --primary-light: #bae6fd;
+  --primary-soft: rgba(56, 189, 248, 0.22);
+  --secondary: #67e8f9;
+  --secondary-light: #a5f3fc;
+  --accent: #7dd3fc;
+  --accent-soft: rgba(125, 211, 252, 0.2);
+}
+
+/* 4. SUNSET GLOW (Dark Amber Twilight) */
+body.bg-sunset, html.dark body.bg-sunset, html[data-theme="sunset"] body {
+  --bg-gradient: linear-gradient(135deg, #1b0a04 0%, #2f1309 50%, #1e0b04 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #ffedd5;
+  --text-muted: #fdba74;
+  --surface: rgba(27, 10, 4, 0.94);
+  --surface-card: rgba(52, 24, 12, 0.88);
+  --surface-input: rgba(70, 32, 16, 0.92);
+  --surface-border: rgba(253, 186, 116, 0.35);
+  --surface-chip: rgba(60, 28, 14, 0.90);
+  --primary: #fb923c;
+  --primary-deep: #ea580c;
+  --primary-light: #fed7aa;
+  --primary-soft: rgba(251, 146, 60, 0.22);
+  --secondary: #facc15;
+  --secondary-light: #fef08a;
+  --accent: #fdba74;
+  --accent-soft: rgba(253, 186, 116, 0.2);
+}
+
+/* 5. COSMIC AURORA (Dark Violet Nebula) */
+body.bg-aurora, html.dark body.bg-aurora, html[data-theme="aurora"] body {
+  --bg-gradient: linear-gradient(135deg, #070518 0%, #15092a 50%, #070f1a 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #f3e8ff;
+  --text-muted: #d8b4fe;
+  --surface: rgba(7, 5, 24, 0.94);
+  --surface-card: rgba(30, 16, 56, 0.88);
+  --surface-input: rgba(44, 24, 80, 0.92);
+  --surface-border: rgba(216, 180, 254, 0.35);
+  --surface-chip: rgba(36, 20, 66, 0.90);
+  --primary: #c084fc;
+  --primary-deep: #9333ea;
+  --primary-light: #e9d5ff;
+  --primary-soft: rgba(192, 132, 252, 0.22);
+  --secondary: #818cf8;
+  --secondary-light: #c7d2fe;
+  --accent: #e879f9;
+  --accent-soft: rgba(232, 121, 249, 0.2);
+}
+
+/* 6. CHERRY BLOSSOM (Dark Velvet Wine / Rose) */
+body.bg-cherry, html.dark body.bg-cherry, html[data-theme="cherry"] body {
+  --bg-gradient: linear-gradient(135deg, #17030e 0%, #2c091b 50%, #1a0310 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #fee2e2;
+  --text-muted: #fda4af;
+  --surface: rgba(23, 3, 14, 0.94);
+  --surface-card: rgba(48, 12, 32, 0.88);
+  --surface-input: rgba(66, 18, 44, 0.92);
+  --surface-border: rgba(253, 164, 175, 0.35);
+  --surface-chip: rgba(56, 14, 38, 0.90);
+  --primary: #f472b6;
+  --primary-deep: #db2777;
+  --primary-light: #fbcfe8;
+  --primary-soft: rgba(244, 114, 182, 0.22);
+  --secondary: #fb7185;
+  --secondary-light: #fecdd3;
+  --accent: #fda4af;
+  --accent-soft: rgba(253, 164, 175, 0.2);
+}
+
+/* ── Explicit High-Specificity Theme Binding Classes ── */
+.text-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.bg-surface {
+  background-color: var(--surface) !important;
+}
+
+.bg-surface-card {
+  background-color: var(--surface-card) !important;
+}
+
+.bg-surface-input {
+  background-color: var(--surface-input) !important;
+}
+
+.bg-surface-chip {
+  background-color: var(--surface-chip) !important;
+}
+
+.border-surface-border {
+  border-color: var(--surface-border) !important;
+}
+
+.bg-primary-soft {
+  background-color: var(--primary-soft) !important;
+}
+
+.bg-primary-soft\/80 {
+  background-color: var(--primary-soft) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+.border-secondary {
+  border-color: var(--secondary) !important;
+}
+
+/* ── Custom Range Slider ── */
+input[type=range].fancy-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--primary) var(--pct, 50%), rgba(201, 184, 232, 0.35) var(--pct, 50%));
+}
+
+input[type=range].fancy-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(155, 134, 204, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type=range].fancy-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 3px 12px rgba(155, 134, 204, 0.7);
+}
+
+/* ── Falling Cherry Blossom Petals Animation ── */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(var(--startX), -10vh, 0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(var(--endX), 110vh, 0) rotate(var(--rot)) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 40;
+  animation: petalFall var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  opacity: 0;
+  filter: drop-shadow(0 2px 4px rgba(242, 167, 195, 0.3));
+}
+
+/* ── Custom Scrollbar ── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ── Glass Nav and Glass Panel Utilities ── */
+.glass-nav {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: var(--surface-border);
+}
+
+.glass-panel {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: var(--surface-border);
+}
+
+/* ── General Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-orb-float {
+  animation: floatOrb 8s ease-in-out infinite;
+}
