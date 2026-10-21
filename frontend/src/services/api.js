@@ -5,9 +5,15 @@
 
 import axios from 'axios';
 
+<<<<<<< HEAD
 export const API_BASE_URL =
   import.meta.env.API_URL ||
   import.meta.env.VITE_API_URL ||
+=======
+export const API_BASE_URL = 
+  import.meta.env.API_URL || 
+  import.meta.env.VITE_API_URL || 
+>>>>>>> a1914cd144c713fcd8c228c3a2e0564b8f4a2c3c
   'http://localhost:5000/api';
 
 // Persistent Token Storage Helpers
